@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class User {
     private static int USERS;
     private int id;
-    private String username, password;
+    private String username, password, firstName, lastName, email;
     private ArrayList<Message> messages;
     private ArrayList<TutrRequest> requests;
     private boolean isTutor;
@@ -30,5 +30,52 @@ public class User {
         return isTutor;
     }
 
+    /**
+     * @param i
+     * @return this User's ith Message, where i=0 is the newest Message
+     */
+    public Message getMessage(int i) {
+        return messages.get(i);
+    }
+
+    public void addMessage(Message m) {
+        messages.add(0, m);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 }
 

@@ -7,6 +7,7 @@ import java.util.ArrayList;
  */
 public class Tutor extends User {
     private ArrayList<String> subjects;
+    private int minPrice;
 
     public Tutor(String uname, String pass) {
         super(uname, pass);
@@ -14,5 +15,14 @@ public class Tutor extends User {
         subjects = new ArrayList<String>();
     }
 
+    public void setMinPrice(int minPrice) {
+        this.minPrice = minPrice;
+    }
 
+    public int getMinPrice() {
+        return minPrice;
+    }
 }
+
+
+

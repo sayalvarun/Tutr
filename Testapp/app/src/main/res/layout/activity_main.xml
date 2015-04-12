@@ -13,33 +13,15 @@
         android:textSize="40sp"
         android:layout_centerHorizontal="true"/>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/username_field"
-        android:layout_below="@+id/app_title"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:id="@+id/username_edittext" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/password_field"
-        android:layout_below="@+id/app_title"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="80dp"
-        android:id="@+id/pass_edittext" />
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/login_button_text"
+        android:text="@string/sign_up_button_text"
         android:id="@+id/button"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/pass_edittext"
-        android:layout_centerHorizontal="true"
-        android:onClick="loginAction" />
+        android:layout_marginTop="66dp"
+        android:onClick="signupAction"
+        android:layout_below="@+id/app_title"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>
