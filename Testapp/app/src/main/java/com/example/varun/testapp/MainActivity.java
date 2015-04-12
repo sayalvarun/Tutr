@@ -169,7 +169,8 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private boolean userKnown(){
-        final SharedPreferences prefs = this.getSharedPreferences(MainActivity.class.getSimpleName(),Context.MODE_PRIVATE);
+        final SharedPreferences prefs = this.getSharedPreferences(MainActivity.class.getSimpleName(),
+                Context.MODE_PRIVATE);
         return prefs.contains("username");
     }
 

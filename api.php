@@ -15,6 +15,11 @@ switch ($cmd) {
 		createUser($uname, $fname, $lname, $email, $phone, $school, $pass, $regID);
 		break;
 
+	case "getUserID":
+		$uname = $_POST["uname"];
+		getUserID($uname);
+		break;
+
 	case "makeTutor":
 		$tutorID = $_POST["tutorID"];
 		$subject = $_POST["subject"];
@@ -48,11 +53,11 @@ switch ($cmd) {
 	case "findTutors":
 		$course	 = $_POST["course"];
 		$price = $_POST["price"];
-		findTutors($course, $price)
+		findTutors($course, $price);
 		break;
 
 	case "sendMessage":
-		$reciever = $_POST["reciever"];
+		$reciever = $_POST["receiver"];
 		$message = $_POST["message"];
 		sendMessage($reciever, $message);
 		break;

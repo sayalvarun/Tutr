@@ -84,10 +84,9 @@ function sendPushNotif($regID, $api) {
     return $result;
 }
 
-$id = "APA91bEPZoxREVUVYwNFZkvLJf_fLQRmRH6ntu_J-kJMFruEYCp3eSMcgl2zm-8YtDGsA8QugUem9lb7hCr1nvrXKn5iTP-E_22YAdJcOp_uD0zNr41cA2WyNnYXWoRub1eZAGWHzFxrzgN5nwdY6JzZ6B28q3bCgA";
 $api = "AIzaSyB6hhLczi2wf0_G5UGaSltnAL459pVSV2A";
 
-$res = sendPushNotif($id, $api);
+//$res = sendPushNotif($id, $api);
 
-var_dump($res);
+//var_dump($res);
 ?>
