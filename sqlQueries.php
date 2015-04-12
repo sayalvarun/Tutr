@@ -1,5 +1,7 @@
 <?php
-conn = connect();
+require 'dbConnect.php';
+global $con;
+$con = connect();
 
 function createUser($uname, $fname, $lname, $email, $phone, $school, $pass, $regID){
 	$sql="insert into user 

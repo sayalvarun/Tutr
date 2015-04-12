@@ -1,5 +1,4 @@
 <?php
-require 'dbConnect.php';
 require 'sqlQueries.php';
 
 $cmd = $_POST["command"];
