@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class User {
     private static int USERS;
     private int id;
-    private String username, password, firstName, lastName, email;
+    private String username, password, firstName, lastName, email, phoneNum, school;
     private ArrayList<Message> messages;
     private ArrayList<TutrRequest> requests;
     private boolean isTutor;
@@ -77,5 +77,21 @@ public class User {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-}
 
+    public String getPhoneNum() {
+        return this.phoneNum;
+    }
+
+    public void setPhoneNum(String num) {
+        this.phoneNum = num;
+    }
+
+    public String getSchool() {
+        return this.school;
+    }
+
+    public void setSchool(String school) {
+        this.school = school;
+    }
+
+}

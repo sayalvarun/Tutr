@@ -71,10 +71,15 @@ public class MainActivity extends ActionBarActivity {
     SharedPreferences prefs;
     Context context;
 
-    String regid;
+    public static String regid;
 
 
-
+//a couple clues for the regid/user creation problem:
+    //a user can't be created if there is already another user in the database
+    //is the new regid the same even after a user is signed out?
+    //if sign up response fails, user will wind up logged in anyway
+    //trying to sign out crashes
+    //should work when creating users from separate computers :)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,8 +105,11 @@ public class MainActivity extends ActionBarActivity {
                     sendRegistrationIdToBackend();
                     if (userKnown()) {
                         Intent intent = new Intent(this, Home.class);
-                        SharedPreferences preferences = this.getSharedPreferences("com.example.varun.testapp",Context.MODE_PRIVATE);
-                        
+                        SharedPreferences preferences = this.getSharedPreferences(MainActivity.class.getSimpleName(),Context.MODE_PRIVATE);
+                        String username = preferences.getString("username",null);
+                        String password = preferences.getString("password",null);
+                        intent.putExtra(USERNAME,username);
+                        intent.putExtra(PASSWORD,password);
                         startActivity(intent);
                     }
                 }
@@ -161,7 +169,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private boolean userKnown(){
-        final SharedPreferences prefs = this.getSharedPreferences()
+        final SharedPreferences prefs = this.getSharedPreferences(MainActivity.class.getSimpleName(),Context.MODE_PRIVATE);
         return prefs.contains("username");
     }
 

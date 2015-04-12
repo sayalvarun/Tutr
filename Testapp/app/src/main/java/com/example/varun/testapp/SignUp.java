@@ -17,6 +17,9 @@ public class SignUp extends ActionBarActivity {
     public final static String FIRSTNAME = "com.example.varun.testapp.FIRSTNAME";
     public final static String LASTNAME = "com.example.varun.testapp.LASTNAME";
     public final static String EMAIL = "com.example.varun.testapp.EMAIL";
+    public final static String PHONENUM = "com.example.varun.testapp.PHONENUM";
+    public final static String SCHOOL = "com.example.varun.testapp.SCHOOL";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,16 +57,24 @@ public class SignUp extends ActionBarActivity {
         EditText firstNameET = (EditText) findViewById(R.id.first_name_submit);
         EditText lastNameET = (EditText) findViewById(R.id.last_name_submit);
         EditText emailET = (EditText) findViewById(R.id.email_submit);
+        EditText phoneET = (EditText) findViewById(R.id.phoneNumber_submit);
+        EditText schoolET = (EditText) findViewById(R.id.school_submit);
+
         String usernameVal = usernameET.getText().toString();
         String passwordVal = passwordET.getText().toString();
         String firstNameVal = firstNameET.getText().toString();
         String lastNameVal = lastNameET.getText().toString();
         String emailVal = emailET.getText().toString();
+        String phoneVal = phoneET.getText().toString();
+        String schoolVal = schoolET.getText().toString();
+
         intent.putExtra(USERNAME, usernameVal);
         intent.putExtra(PASSWORD, passwordVal);
         intent.putExtra(FIRSTNAME, firstNameVal);
         intent.putExtra(LASTNAME, lastNameVal);
         intent.putExtra(EMAIL, emailVal);
+        intent.putExtra(PHONENUM, phoneVal);
+        intent.putExtra(SCHOOL, schoolVal);
 
         startActivity(intent);
     }
