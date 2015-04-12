@@ -48,7 +48,7 @@ switch ($cmd) {
 	case "findTutors":
 		$course	 = $_POST["course"];
 		$price = $_POST["price"];
-		findTutors($course, $price)
+		findTutors($course, $price);
 		break;
 
 	case "sendMessage":
