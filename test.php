@@ -1,6 +1,9 @@
 <?php
 
-$regId = $_POST['regID'];
-echo "Confirmed Registration ID: $regId";
-var_dump($regId);
+include 'sqlQueries.php';
+
+$jessesID = getUserID("jtg");
+echo $jessesID;
+
+
 ?>

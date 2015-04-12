@@ -5,6 +5,8 @@ global $con;
 $con = connect();
 
 function createUser($uname, $fname, $lname, $email, $phone, $school, $pass, $regID){
+	global $con;
+	
 	$sql="insert into user 
 		 (username, first_name, last_name, email, phone_number, school, password, registration_key)
 		  values ('$uname', '$fname', '$lname', '$email', '$phone', '$school', '$pass', '$regID');";
@@ -16,6 +18,8 @@ function createUser($uname, $fname, $lname, $email, $phone, $school, $pass, $reg
 }
 
 function makeTutor($tutor, $subject, $min_price){
+	global $con;
+	
 	#flag user as a tutor
 	$flagTutor = "update user
 				  set isTutor = 1
@@ -35,6 +39,8 @@ function makeTutor($tutor, $subject, $min_price){
 }
 
 function addReview($tutor, $subj, $comment, $rating){
+	global $con;
+	
 	$insert = "insert into tutor_ratings
 			  (tutor_id, subject, comment, rating)
 			  values('$tutor','$subj','$comment','$rating');";
@@ -62,6 +68,8 @@ function addReview($tutor, $subj, $comment, $rating){
 }
 
 function removeTutor($tutor, $subj){
+	global $con;
+	
 	$sql = "delete from subjects
 			where tutor_id = '$tutor'
 			  && subject = '$subj';";
@@ -70,6 +78,8 @@ function removeTutor($tutor, $subj){
 
 #inserts entry into message table
 function insertMessage($sender, $subject, $text, $msgType, $price, $prevMsg){
+	global $con;
+	
 	$sql = "insert into message
 			(sender_id, subject, text, msg_type, price, acked_msg_id)
 			values($sender, $subject, $text, $msgType, $price, $prevMsg);";
@@ -80,6 +90,8 @@ function insertMessage($sender, $subject, $text, $msgType, $price, $prevMsg){
 }
 
 function getMostRecentMessage(){
+	global $con;
+	
 	$sql = "select max(id)
 			from message;";
 	$res = mysqli_query($con, $sql);
@@ -93,6 +105,8 @@ function getMostRecentMessage(){
 
 #finds all tutors for a course who are willing to tutor for the price
 function findTutors($course, $price){
+	global $con;
+	
 	$getTutors = "select * from subjects
 				  where subject = '$course'
 				    && $price > min_price;";
@@ -101,6 +115,8 @@ function findTutors($course, $price){
 
 #inserts entry into msg_recevier table - receiver to msgs
 function sendMsg($receiver, $msg){
+	global $con;
+	
 	$sql = "insert into msg_receivers
 			100)(receiver_id, msg_id)
 			values($receiver, $msg);";
@@ -108,6 +124,8 @@ function sendMsg($receiver, $msg){
 }
 
 function makeBroadcastMsgs($student, $course, $price, $text){
+	global $con;
+	
 	#find all tutors of a course
 	$tResults = findTutors($course);
 	#if there were tutors
@@ -125,6 +143,8 @@ function makeBroadcastMsgs($student, $course, $price, $text){
 }
 
 function createRequest($student, $tutor, $subject, $price){
+	global $con;
+	
 	$sql = "insert into request
 			(student_id, tutor_id, subject, price)
 			values($student, $tutor, '$subject', $price);";
@@ -133,6 +153,8 @@ function createRequest($student, $tutor, $subject, $price){
 }
 
 function getOpenMessages($user){
+	global $con;
+	
 	#get all open messages where the user is the sender
 	$senderMsgs = "select * from message
 				   where sender_id = $user
@@ -151,6 +173,8 @@ function getOpenMessages($user){
 }
 
 function getRequests($user, $sortBy){
+	global $con;
+	
 	$requests = "select * from requests
 				where tutor_id = $user ||
 				  student_id = $user
@@ -165,6 +189,8 @@ function getRequests($user, $sortBy){
 }
 
 function getTutorRatings($tutor, $subject){
+	global $con;
+	
 	$ratings = "select * from tutor_ratings
 				where tutor_id = $tutor ";
 	if($subject)
@@ -177,13 +203,17 @@ function getTutorRatings($tutor, $subject){
 }
 
 function getUserID($uname) {
+	global $con;
+	
 	$q = "select id from user where username='$uname'; ";
-	$res = mysql_query($con, $q);
+	$res = mysqli_query($con, $q);
 	$row = mysqli_fetch_array($res);
 	echo $row[0]; 
 }
 
 function echoRows($result){
+	global $con;
+	
 	if(!result){
 		echo "Failure";
 		return;
