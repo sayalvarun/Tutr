@@ -1,4 +1,5 @@
 <?php
+conn = connect();
 
 function createUser($uname, $fname, $lname, $email, $phone, $school, $pass, $regID){
 	$sql="insert into user 
