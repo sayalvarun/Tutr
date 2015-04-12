@@ -15,6 +15,11 @@ switch ($cmd) {
 		createUser($uname, $fname, $lname, $email, $phone, $school, $pass, $regID);
 		break;
 
+	case "getUserID":
+		$uname = $_POST["uname"];
+		getUserID($uname);
+		break;
+
 	case "makeTutor":
 		$tutorID = $_POST["tutorID"];
 		$subject = $_POST["subject"];

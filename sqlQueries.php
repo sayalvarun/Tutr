@@ -176,6 +176,13 @@ function getTutorRatings($tutor, $subject){
 	echoRows($res);
 }
 
+function getUserID($uname) {
+	$q = "select id from user where username='$uname'; ";
+	$res = mysql_query($con, $q);
+	$row = mysqli_fetch_array($res);
+	echo $row[0]; 
+}
+
 function echoRows($result){
 	if(!result){
 		echo "Failure";
