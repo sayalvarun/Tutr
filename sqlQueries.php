@@ -1,9 +1,9 @@
 <?php
-$con=mysqli_connect("127.0.0.1","root","p3nis","tutr");
+
 function createUser($uname, $fname, $lname, $email, $phone, $school, $pass, $regID){
 	$sql="insert into user 
-		 (username, first_name, last_name, email, phone_number, school, password)
-		  values ('$uname', '$fname', '$lname', '$email', '$phone', '$school', '$pass');";
+		 (username, first_name, last_name, email, phone_number, school, password, registration_key)
+		  values ('$uname', '$fname', '$lname', '$email', '$phone', '$school', '$pass', '$regID');";
 	if (mysqli_query($con,$sql))
 	   echo "Values have been inserted successfully";
 }
