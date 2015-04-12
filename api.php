@@ -52,7 +52,7 @@ switch ($cmd) {
 		break;
 
 	case "sendMessage":
-		$reciever = $_POST["reciever"];
+		$reciever = $_POST["receiver"];
 		$message = $_POST["message"];
 		sendMessage($reciever, $message);
 		break;
