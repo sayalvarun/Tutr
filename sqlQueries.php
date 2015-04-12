@@ -1,6 +1,5 @@
 <?php
 require 'dbConnect.php';
-include 'lib/JSON.php';
 
 global $con;
 $con = connect();
